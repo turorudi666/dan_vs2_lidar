@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 from glob import glob
 import os
 
-package_name = 'ros2_py_template'
+package_name = 'dan_vs2_lidar'
 
 setup(
     name=package_name,
@@ -16,14 +16,15 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='todo',
-    maintainer_email='todo@todo.com',
-    description='TODO: Package description',
+    maintainer='Danis Balazs',
+    maintainer_email='b1danis04@gmail.com',
+    description='ROS 2 alapu LiDAR akadalyerzekelo',
     license='GNU General Public License v3.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            # 'control_vehicle = ros2_py_template.control_vehicle:main',
+            'lidar_simulator = dan_vs2_lidar.lidar_simulator:main',
+            'obstacle_detector = dan_vs2_lidar.obstacle_detector:main',
         ],
     },
 )
