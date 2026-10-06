@@ -32,21 +32,17 @@ Az akadály távolsága alapján három állapot lehetséges:
 ## Node-ok és topicok
 
 ```mermaid
-graph LR;
+graph LR
 
-sim([/lidar_simulator]) --> scan
+    sim["/lidar_simulator"] --> scan["/scan<br/>sensor_msgs/LaserScan"]
+    scan --> detector["/obstacle_detector"]
+    detector --> status["/obstacle_status<br/>std_msgs/String"]
 
-scan[/scan<br/>sensor_msgs/LaserScan] --> detector([/obstacle_detector])
+    classDef node fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
+    classDef topic fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742
 
-detector --> status
-
-status[/obstacle_status<br/>std_msgs/String]
-
-classDef node fill:#ef4638,stroke:#152742,stroke-width:2px,color:#fff
-classDef topic fill:#34aec5,stroke:#152742,stroke-width:2px,color:#152742
-
-class sim,detector node
-class scan,status topic
+    class sim,detector node
+    class scan,status topic
 ```
 
 ## Telepítés
